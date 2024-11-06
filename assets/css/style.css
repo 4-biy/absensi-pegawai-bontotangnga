@@ -29,6 +29,26 @@ body::before {
   z-index: -1;
 }
 
+#timer {
+  font-size: 80px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-top: -20px;
+}
+
+ /* Styling tombol agar tampil seperti button */
+ .icon-button {
+   background-color: transparent;
+   border: none;
+   cursor: pointer;
+   font-size: 1.5rem;
+   color: #fff;
+ }
+
+ .icon-button:hover {
+   color: #0056b3;
+ }
+
 @media (min-width: 1024px) {
   body::before {
     background-attachment: fixed;
