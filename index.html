@@ -133,8 +133,8 @@
 <!-- JavaScript -->
 <script>
   const kantorLatitude = -5.4695432;  // Ganti dengan latitude kantor
-  const kantorLongitude = 119.9177426; // Ganti dengan longitude kantor
-  const maxDistance = 0.06; // Jarak maksimum dalam kilometer (misalnya 0.5 km)
+  const kantorLongitude = 119.4644559; // Ganti dengan longitude kantor
+  const maxDistance = 0.01; // Jarak maksimum dalam kilometer (misalnya 15 m)
 
     let canAccessAbsensi = false;
 
@@ -179,21 +179,19 @@
   }
 
   // Fungsi untuk memeriksa lokasi pengguna
+  // Fungsi untuk memeriksa lokasi pengguna
   function checkLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
- function checkLocation(position) {
+        (position) => {
           const userLatitude = position.coords.latitude;
           const userLongitude = position.coords.longitude;
-
-          // Hitung jarak antara lokasi pengguna dan kantor
           const distance = calculateDistance(userLatitude, userLongitude, kantorLatitude, kantorLongitude);
 
           if (distance <= maxDistance) {
-            // Jika dalam jarak yang diperbolehkan, redirect ke halaman absensi
-            window.location.href = "absensi.html";
+            sessionStorage.setItem("canAccessAbsensi", "true"); // Izinkan akses
+            window.location.href = "absensi.html"; // Redirect ke absensi.html
           } else {
-            // Jika di luar jarak, tampilkan pesan error dengan SweetAlert
             Swal.fire({
               title: "Absensi Gagal",
               text: "Anda berada di luar radius absensi, silahkan datang ke lokasi absensi untuk melakukan absensi.",
@@ -202,15 +200,14 @@
             });
           }
         },
-        function (error) {
-          alert("Gagal mendapatkan lokasi Anda. Pastikan izin lokasi sudah diaktifkan.");
+        () => {
+          alert("Gagal mendapatkan lokasi Anda.");
         }
       );
     } else {
       alert("Geolocation tidak didukung oleh browser ini.");
     }
   }
-
   // Perbarui waktu setiap detik
   setInterval(updateTimer, 1000);
 
