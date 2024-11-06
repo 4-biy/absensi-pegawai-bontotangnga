@@ -48,9 +48,14 @@
             // Mengecek apakah iframe sudah dimuat lebih dari sekali
             if (loadCount > 1) {
                 // Ganti URL di bawah dengan URL WebApp Anda
-                document.location = "https://script.google.com/macros/s/AKfycbxT1zRdXFl1D89F4p-RzJ0nTneUfD6tTNRNIyykZgubhQmRxwlWzS-jkdDzNJLvXX_kxw/exec";
+                document.location = "https://script.google.com/macros/s/AKfycbx4RUqO01HrY-5IfHUtA3G-UF5poWugYMar7HkJFGd8rbZC78CALt06JBt98OHygsLj4w/exec";
             }
         };
+         // Periksa apakah flag `canAccessAbsensi` bernilai true
+            if (!window.opener || !window.opener.canAccessAbsensi) {
+                // Jika tidak, redirect ke halaman utama
+                window.location.href = "index.html"; // Atau halaman lain jika diperlukan   
+            }
     </script>
 </body>
 
