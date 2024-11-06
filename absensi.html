@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ABSENSI PEGAWAI KANTOR DESA BONTOTANGNGA</title>
+    <title>ABSENSI MAHASISWA & SISWA</title>
     <style>
         #gform {
             margin: auto;
@@ -51,11 +51,19 @@
                 document.location = "https://script.google.com/macros/s/AKfycbx4RUqO01HrY-5IfHUtA3G-UF5poWugYMar7HkJFGd8rbZC78CALt06JBt98OHygsLj4w/exec";
             }
         };
-         // Periksa apakah flag `canAccessAbsensi` bernilai true
-            if (!window.opener || !window.opener.canAccessAbsensi) {
-                // Jika tidak, redirect ke halaman utama
-                window.location.href = "index.html"; // Atau halaman lain jika diperlukan   
+     document.addEventListener("DOMContentLoaded", () => {
+            // Cek apakah izin akses absensi telah diberikan
+            const canAccess = sessionStorage.getItem("canAccessAbsensi");
+
+            if (canAccess !== "true") {
+                // Jika tidak diizinkan, redirect kembali ke index.html
+                window.location.href = "index.html";
+            } else {
+                // Menghapus status setelah akses agar tidak bisa langsung akses ulang
+                sessionStorage.removeItem("canAccessAbsensi");
             }
+        });
+
     </script>
 </body>
 
