@@ -88,7 +88,7 @@
             <p style="font-size: small; margin-top: -5px; color: rgb(115, 115, 115);">7:30 WITA sampai 10:00 WITA</p>
             <hr>
             <h6 class="text-primary">Jam Pulang</h6>
-            <p style="font-size: small; margin-top: -5px; color: rgb(115, 115, 115);">13:00 WITA sampai 22:00 WITA</p>
+            <p style="font-size: small; margin-top: -5px; color: rgb(115, 115, 115);">14:00 WITA sampai 22:00 WITA</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -156,8 +156,8 @@
 
     // Cek apakah waktu sesuai dengan jam absensi
     if (
-      (hours === 7 && minutes >= 30 && hours < 10) || // 07:30 hingga 09:59
-      (hours >= 13 && hours < 22) // 13:00 hingga 21:59
+      (hours === 7 && minutes >= 45 && hours < 10) || // 07:30 hingga 09:59
+      (hours >= 14 && hours < 22) // 14:00 hingga 21:59
     ) {
       document.getElementById('absensiButton').disabled = false; // Aktifkan tombol Absensi
     } else {
