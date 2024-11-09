@@ -156,7 +156,7 @@
 
     // Cek apakah waktu sesuai dengan jam absensi
     if (
-      (hours === 7 && minutes >= 45 && hours < 10) || // 07:30 hingga 09:59
+      (hours === 7 && minutes >= 35 && hours < 9 ) || // 07:30 hingga 09:59
       (hours >= 14 && hours < 22) // 14:00 hingga 21:59
     ) {
       document.getElementById('absensiButton').disabled = false; // Aktifkan tombol Absensi
