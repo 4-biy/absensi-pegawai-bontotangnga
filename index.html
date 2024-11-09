@@ -2,93 +2,64 @@
 <html lang="en">
 
 <head>
-
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
   <title>ABSENSI PEGAWAI KANTOR DESA BONTOTANGNGA</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <!-- <link href="assets/img/logo.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
-
   <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-    rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-      crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Poppins" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-
 </head>
 
 <body>
 
-  <!-- ======= Header ======= -->
+  <!-- Header -->
   <header id="header">
-
     <div class="container">
-
       <div class="d-flex mb-3">
         <a href="index.html" class="mr-auto"><img src="assets/img/Bantaeng_Regency_Logo.png" width="75" alt=""
             class="img-fluid"></a>
         <h1 style="display: flex; justify-content: center;align-items: center; margin: 10px"><a>DESA BONTO TANGNGA</a>
         </h1>
       </div>
-      <!-- Timer Jam -->
-       <div class="footer">
-
-         <div class="quotes">
-           <p style="font-size: 20px;" id="paragraph" class="paragraph">Selamat datang di sistem Absensi Online kami! Di
-             era digital saat ini, kemudahan dan efisiensi dalam mengelola kehadiran
-             pegawai sangatlah penting. Dengan platform absensi online, pegawai Kantor Desa Bonto Tangnga kini dapat
-             melakukan absensi
-             dengan lebih mudah, cepat, dan akurat</p>
-            </div>
-            <div class="d-flex">
-              <!-- Icon sebagai tombol -->
-              <button type="button" class="icon-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                <i class="fas fa-circle-exclamation"></i>
-              </button>
-              <div id="timer"></div>
-            </div>
-        
-      <div class="d-flex justify-content-between" style="width: 230px;">
-      <button id="absensiButton" class="btn btn-outline-primary" onclick="checkLocation()" disabled>Absensi</button>
-        <a class="btn btn-outline-primary"
-          href="https://docs.google.com/spreadsheets/d/1fwkDtNEtgGFw7yyWx4j63d_1rVmHj4od4MwGN4ePuQw/edit?usp=sharing"
-          target="_blank">Rekap Absensi</a>
+      <div class="footer">
+        <div class="quotes">
+          <p style="font-size: 20px;">Selamat datang di sistem Absensi Online kami! Di
+          era digital saat ini, kemudahan dan efisiensi dalam mengelola kehadiran
+          pegawai sangatlah penting. Dengan platform absensi online, pegawai Kantor Desa Bonto Tangnga kini dapat
+          melakukan absensi
+          dengan lebih mudah, cepat, dan akurat</p>
+        </div>
+        <div class="d-flex">
+          <button type="button" class="icon-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <i class="fas fa-circle-exclamation"></i>
+          </button>
+          <div id="timer"></div>
+        </div>
+        <div class="d-flex justify-content-between" style="width: 230px;">
+          <button id="absensiButton" class="btn btn-outline-primary" onclick="redirectAbsensi()"
+            disabled>Absensi</button>
+          <a class="btn btn-outline-primary" href="https://docs.google.com/spreadsheets/d/1fwkDtNEtgGFw7yyWx4j63d_1rVmHj4od4MwGN4ePuQw/edit?usp=sharing" target="_blank">Rekap
+            Absensi</a>
+        </div>
       </div>
     </div>
-    </div>
-  </header><!-- End Header -->
+  </header>
+
   <!-- Modal -->
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal fade" id="staticBackdrop" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-sm">
-      <div class="modal-content ">
-        <div class="modal-header d-flex ">
-          <h1 class="modal-title text-dark fs-5" id="staticBackdropLabel">KETERANGAN</h1>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 text-dark" id="staticBackdropLabel">KETERANGAN</h1>
         </div>
-        <div class="modal-body text-dark p-4">
-            <h6 class="text-primary">Jam Masuk</h6>
-            <p style="font-size: small; margin-top: -5px; color: rgb(115, 115, 115);">7:30 WITA sampai 10:00 WITA</p>
-            <hr>
-            <h6 class="text-primary">Jam Pulang</h6>
-            <p style="font-size: small; margin-top: -5px; color: rgb(115, 115, 115);">14:00 WITA sampai 22:00 WITA</p>
+        <div class="modal-body">
+          <h6 class="text-primary">Jam Masuk</h6>
+          <p style="font-size: small; color: black;">07:30 WITA sampai 09:00 WITA</p>
+          <h6 class="text-primary">Jam Pulang</h6>
+          <p style="font-size: small;  color: black">14:00 WITA sampai 22:00 WITA</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -97,123 +68,37 @@
     </div>
   </div>
 
-  <!-- Modal Error -->
-  <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="errorModalLabel">Error Absensi</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          Anda berada di luar kantor. Tidak dapat melakukan absensi.
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/purecounter/purecounter.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-
-<!-- JavaScript -->
-<script>
-  const kantorLatitude = -5.4695432;
-  const kantorLongitude = 119.9177426; // Ganti dengan longitude kantor
-  const maxDistance = 0.08; // Jarak maksimum dalam kilometer (misalnya 15 m)
-
-    let canAccessAbsensi = false;
-
-      // Fungsi yang akan mengubah flag saat tombol diklik
-      function allowAccessToAbsensi() {
+  <script>
+    function allowAccessToAbsensi() {
         canAccessAbsensi = true;
-        window.location.href = "absensi.html"; // Arahkan ke absensi.html
+      window.location.href = "absensi.html"; // Arahkan ke absensi.html
+    }
+    function updateTimer() {
+      const currentTime = new Date();
+      const hours = currentTime.getHours();
+      const minutes = currentTime.getMinutes();
+      const timeString = currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+      document.getElementById('timer').textContent = timeString;
+
+  if ((hours === 7 && minutes >= 30) || (hours >= 8 && hours < 9) || (hours >= 14 && hours < 22)) {
+        document.getElementById('absensiButton').disabled = false;
+      } else {
+        document.getElementById('absensiButton').disabled = true;
       }
-
-  // Fungsi untuk memperbarui waktu dan memeriksa jam
-  function updateTimer() {
-    const currentTime = new Date();
-    const hours = currentTime.getHours();
-    const minutes = currentTime.getMinutes();
-    const seconds = currentTime.getSeconds();
-    const timeString = currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-
-    document.getElementById('timer').textContent = timeString;
-
-    // Cek apakah waktu sesuai dengan jam absensi
-    if (
-      (hours === 7 && minutes >= 35 && hours < 9 ) || // 07:30 hingga 09:59
-      (hours >= 14 && hours < 22) // 14:00 hingga 21:59
-    ) {
-      document.getElementById('absensiButton').disabled = false; // Aktifkan tombol Absensi
-    } else {
-      document.getElementById('absensiButton').disabled = true; // Nonaktifkan tombol Absensi
     }
-  }
 
-  // Fungsi untuk menghitung jarak antara dua titik koordinat (latitude/longitude)
-  function calculateDistance(lat1, lon1, lat2, lon2) {
-    const R = 6371; // Radius bumi dalam kilometer
-    const dLat = (lat2 - lat1) * Math.PI / 180;
-    const dLon = (lon2 - lon1) * Math.PI / 180;
-    const a =
-      0.5 - Math.cos(dLat) / 2 +
-      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
-      (1 - Math.cos(dLon)) / 2;
-
-    return R * 2 * Math.asin(Math.sqrt(a)); // Hasil dalam kilometer
-  }
-
-  // Fungsi untuk memeriksa lokasi pengguna
-  // Fungsi untuk memeriksa lokasi pengguna
-  function checkLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const userLatitude = position.coords.latitude;
-          const userLongitude = position.coords.longitude;
-          const distance = calculateDistance(userLatitude, userLongitude, kantorLatitude, kantorLongitude);
-
-          if (distance <= maxDistance) {
-            sessionStorage.setItem("canAccessAbsensi", "true"); // Izinkan akses
-            window.location.href = "absensi.html"; // Redirect ke absensi.html
-          } else {
-            Swal.fire({
-              title: "Absensi Gagal",
-              text: "Anda berada di luar radius absensi, silahkan datang ke lokasi absensi untuk melakukan absensi.",
-              icon: "error",
-              confirmButtonText: "OK"
-            });
-          }
-        },
-        () => {
-          alert("Gagal mendapatkan lokasi Anda.");
-        }
-      );
-    } else {
-      alert("Geolocation tidak didukung oleh browser ini.");
+    function redirectAbsensi() {
+      window.location.href = "absensi.html";
     }
-  }
-  // Perbarui waktu setiap detik
-  setInterval(updateTimer, 1000);
 
-  // Panggil fungsi pertama kali untuk menampilkan waktu segera setelah halaman dimuat
-  updateTimer();
-</script>
+    setInterval(updateTimer, 1000);
+    updateTimer();
+  </script>
 </body>
 
 </html>
